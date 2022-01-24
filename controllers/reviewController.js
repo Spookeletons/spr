@@ -19,7 +19,8 @@ module.exports.addReview = async function(req,res){
         rating: req.body.rating,
         description: req.body.description,
         product_id: req.params.productId
-    })
+    });
+    res.redirect(`/products/profile/${req.params.productId}`)
 }
 module.exports.renderEditReviewForm = async function(req,res){
     const review = await Review.findByPk(
